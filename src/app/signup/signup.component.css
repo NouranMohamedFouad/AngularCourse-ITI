@@ -1,0 +1,45 @@
+.parent{
+    background-color: rgba(0, 0, 0, 0.466);
+    color: white;
+    padding:5%;
+    width:70%;
+    margin: 80px auto;
+    border-radius: 40px;
+    font-size: larger;
+}
+
+.btn {
+    margin-left: 28%;
+    width: 40%;
+    color: rgb(0, 0, 0);
+    background-color: rgb(175, 255, 255);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgb(64, 212, 212); 
+    transform: scale(1.1); 
+}
+
+.parent p{
+    margin-left: 32%;    
+}
+
+.parent a{
+    text-decoration: underline;
+    cursor: pointer;
+    color: white;
+}
+
+.text-danger{
+    color: rgb(255, 62, 62);
+}
+
+input{
+    background-color: rgba(255, 255, 255, 0.925);
+    border-radius: 8px;
+    border: none;
+}

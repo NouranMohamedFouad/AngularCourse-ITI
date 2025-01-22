@@ -1,0 +1,49 @@
+<div class="parent">
+    <div class="images">
+
+        <img [src]="product.images[0] " class="card-img-top" alt="..." />
+
+        <div class="sideImages">
+            <img [src]="product.images[0]" class="card-img-top" alt="..."/>
+        </div> 
+    </div>
+
+    <div class="card h-100 content" style="cursor: pointer;">
+        <div class="card-body" >
+            <span *ngIf="product.stock >= 10" class="badge text-bg-success">In Stock</span>
+            <span *ngIf="product.stock > 0 && product.stock < 10" class="badge text-bg-warning">Limited Stock</span>
+            <span *ngIf="product.stock == 0" class="badge text-bg-danger">Out of Stock</span>
+
+        <br/><br/>
+
+        <h2 class="card-title child1">{{product.title }}</h2>
+        <br/>
+
+        <h5 class="card-text child2">${{ product.price}}</h5>
+    
+        <hr/> 
+        <h6 class="card-text">{{ product.description}}</h6>
+        <br/>
+        <h5 class="card-text">Category : {{ product.category}}  </h5>
+
+        <h5 class="card-text">⭐{{ product.rating}}</h5>
+        <br/>
+        <h5 class="card-text">only {{ product.stock}} left </h5>
+        <br/>
+
+        <!-- <button *ngIf="product.stock >= 10" class="btn btn-outline-success "> -   1    + </button> 
+        <button *ngIf="product.stock > 0 && product.stock < 10"  class="btn btn-outline-success "> -   1    + </button> 
+        <p  *ngIf="product.stock == 0" class="btn btn-outline-danger p"> -   1    + </p>  -->
+
+        <hr/>
+        <button *ngIf="product.stock >= 10" class="btn btn-info effect">Buy Now</button> 
+        <button *ngIf="product.stock > 0 && product.stock < 10" class="btn btn-info effect">Buy Now</button> 
+        <span *ngIf="product.stock == 0" class="btn btn-outline-danger ">Buy Now</span> 
+    
+        <button *ngIf="product.stock >= 10" class="btn btn-outline-info" (click)="handleAddToCart(product)">Add to cart</button> 
+        <button *ngIf="product.stock > 0 && product.stock < 10" class="btn btn-outline-info" (click)="handleAddToCart(product)" >Add to cart</button> 
+        <span *ngIf="product.stock == 0" class="btn btn-outline-danger ">Add to cart</span> 
+        </div>
+    </div>
+</div>
+

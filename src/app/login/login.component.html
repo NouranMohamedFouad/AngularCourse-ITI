@@ -1,0 +1,61 @@
+
+<div class="container my-5">
+    <div class="parent"> 
+        <h2>LOGIN</h2>
+        <hr />
+        <form #loginForm="ngForm" (ngSubmit)="handleFormSubmit(loginForm)">
+            <div class="mb-3">
+              <label for="login-name" class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="login-name"
+                aria-describedby="loginHelp"
+                name="loginName"
+                [(ngModel)]="formValues.loginName"
+                required
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                #loginName="ngModel"
+              />
+              @if(loginName.invalid && loginName.touched){
+                @if(loginName.errors?.['required']){
+                        <div id="loginHelp" class="form-text text-danger">Required</div>
+                    } 
+                    @else if(loginName.errors?.['pattern']){
+                        <div id="loginHelp" class="form-text text-danger">Invalid Email Format</div>
+                    } 
+              }
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">password</label>
+              <input 
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                [(ngModel)]="formValues.loginPassword"
+                #password="ngModel"
+                required
+                minlength="8"
+              />
+              @if(password.invalid && password.touched){
+              @if(password.errors?.['required']){
+              <div id="loginHelp" class="form-text text-danger">Required</div>
+              } @else if(password.errors?.['minlength']){
+              <div id="loginHelp" class="form-text text-danger">Min length is 8</div>
+              } }
+            </div>
+            <br/><br/>
+            <button
+              type="submit"
+              class="btn"
+              [disabled]="loginForm.invalid"  routerLink="/" routerLinkActive="active-link">
+              Login
+            </button>
+          </form>
+          <br/><br/>
+          <p>Don't have an Account? <a routerLink="/signup" routerLinkActive="active-link">Register</a></p>
+    </div>
+    
+  </div>
+  

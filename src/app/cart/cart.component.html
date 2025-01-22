@@ -1,0 +1,35 @@
+@for(item of cart; track $index)
+{     
+    <div class="card h-100">
+
+        <div class="card-body">
+            <div class="child1">
+                <div class="child11">
+                    <img [src]='item.product.thumbnail' alt="{{ item.product.title }}" height="100%" width="80%"/>
+                </div>
+                <div class="child12">
+                    <h5 class="card-text">{{ item.product.title }}</h5>
+                    <p>product code:{{ item.product.meta.barcode}} </p>
+                </div>
+            </div>
+            <div class="child2">
+                <div class="child21">
+                    <button class="btn btn-info" (click)="handleIncreaseQuantity(item)">+</button> 
+                    <span>{{ item.quantity }}</span> 
+                    <button class="btn btn-secondary" (click)="handleDecreaseQuantity(item)">-</button> 
+                </div>
+                <div class="child22"> 
+                    <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="removeItem(item)"></button>
+                </div>
+                <div class="child23">
+                    <p class="card-text">${{ item.product.price }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}@empty {
+    <h1>Your Cart Is Empty </h1>
+}
+
+
+  

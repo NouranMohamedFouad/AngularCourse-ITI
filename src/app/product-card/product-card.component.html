@@ -1,0 +1,38 @@
+<div class="card h-100" style="cursor: pointer;">
+    <div class="card-body" (click)="handleRedirect(productItem.id)" >
+        @if(productItem.stock>=10) 
+        {
+            <span class="badge text-bg-success">In Stock</span>
+        }
+        @else if((productItem.stock>0) && (productItem.stock<10))
+        {
+            <span class="badge text-bg-warning">limited stock</span>
+        }
+        @else
+        {
+            <span class="badge text-bg-danger">out of stock</span>
+        }
+        <br/>
+
+        <img [src]='productItem.thumbnail' class="card-img-top"  alt="{{ productItem.title }}" height="50%"  max-width="100%"/>
+        <br/><br/> <br/>
+
+
+        <!-- <div class="parent"> 
+            <h3 class="card-title child1">{{ productItem.title}}</h3>
+            <h5 class="card-text child2">{{ productItem.price}} EGP</h5>
+        </div> -->
+        <h3 class="card-title">{{ productItem.title}}</h3>
+        <h6 class="card-text">{{ productItem.brand}} </h6>
+
+        <br/>
+        <h5 class="card-text ">${{ productItem.price}}</h5>
+        <br/>
+        <h5 class="card-text">⭐{{ productItem.rating}}</h5>
+        <div class="parent"> 
+        </div>
+        <h5 class="card-title child1">{{ productItem.category}} Category</h5>
+    </div>
+    <button class="btn btn-outline-info" (click)="handleAddToCart(productItem)">Add to cart</button> 
+  </div>
+  
